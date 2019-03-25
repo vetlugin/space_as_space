@@ -29,7 +29,7 @@ def fetch_spacex_last_lunch():
     return True
 
 
-def get_Hubble_image(id):
+def get_Hubble_image_by_id(id):
     response = requests.get('http://hubblesite.org/api/v3/image/'+str(id))
 
     pic_path = response.json()['image_files'][-1]['file_url']
@@ -40,5 +40,17 @@ def get_Hubble_image(id):
     download_picture(pic_path, pic_name, pic_dir)
     return True
 
+def get_Hubble_image_collection(collection):
+
+    response = requests.get('http://hubblesite.org/api/v3/images?page=all&collection_name='+collection)
+
+    images_collection = response.json()
+
+    return [images_collection[i]['id'] for i in range(len(images_collection))]
+
+
 if __name__ == '__main__':
-    fetch_spacex_last_lunch()
+
+    list_of_pic_id = get_Hubble_image_collection('spacecraft')
+    for pic_id in list_of_pic_id:
+        get_Hubble_image_by_id(pic_id)
