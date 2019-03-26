@@ -115,3 +115,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+friends.txt
+followed.txt
+skipped.txt
+unfollowed.txt
+whitelist.txt
+space_as_space.checkpoint
+comments.txt
+blacklist.txt
