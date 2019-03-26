@@ -10,9 +10,16 @@ pip install -r requirements.txt
 
 ## Как работает скрипт
 
-Скрипт запускается в терминале:
+Репозиторий содержит три скрипта, работающих независимо друг от друга:
+- fetch_spacex.py - скрипт скачивает фотографии последнего запуска SpaceX в директорию images/
+- fetch_hubble.py - скрипт скачивает картинки из коллекции 'spacecraft' с сайта телескопа Хаббл в директорию images/
+- space_as_space.py - скрипт закачивает картинку в аккаунт Space_as_space инстаграмм
+
+Каждый скрипт запускается из командной строки:
 ```
-python space_insta.py
+python fetch_spacex.py
+python fetch_hubble.py
+python space_as_space.py
 ```
 
 ## Цель проекта
