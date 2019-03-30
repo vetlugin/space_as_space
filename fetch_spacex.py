@@ -1,10 +1,6 @@
 import requests
 import os
 
-def get_extension_file(name):
-    '''Возвращает расширение файла'''
-    return name.split('.')[-1]
-
 def download_picture(pic_path, pic_name, pic_dir):
     '''Скачивает картинку с адресом pic_path, с именем pic_name в директорию pic_dir '''
     if not os.path.exists(pic_dir):
@@ -24,7 +20,7 @@ def fetch_spacex_last_launch():
     list_of_pic = response.json()['links']['flickr_images']
 
     for pic_number, pic in enumerate(list_of_pic):
-        download_picture(pic, 'spacex'+str(pic_number)+'.jpg', 'images')
+        download_picture(pic, 'spacex{}.jpg'.format(pic_number), 'images')
     return True
 
 if __name__ == '__main__':

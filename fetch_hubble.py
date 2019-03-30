@@ -1,10 +1,6 @@
 import requests
 import os
 
-def get_extension_file(name):
-    '''Get extension of 'name' file'''
-    return name.split('.')[-1]
-
 def download_picture(pic_path, pic_name, pic_dir):
     '''Download picture by 'pic_path' address, 'pic_name' name to 'pic_dir' folder'''
     if not os.path.exists(pic_dir):
@@ -19,11 +15,11 @@ def download_picture(pic_path, pic_name, pic_dir):
 def get_Hubble_image_by_id(id):
     '''Download picture with 'id' to 'pic_dir' folder '''
 
-    response = requests.get('http://hubblesite.org/api/v3/image/'+str(id))
+    response = requests.get('http://hubblesite.org/api/v3/image/{}'.format(id))
 
     pic_path = response.json()['image_files'][-1]['file_url']
-    pic_extension = get_extension_file(pic_path)
-    pic_name = "hubble"+str(id)+'.'+pic_extension
+    pic_extension = = os.path.splitext(pic_path)[1]
+    pic_name = "hubble{}.{}".format(id,pic_extension)
     pic_dir = 'images'
 
     download_picture(pic_path, pic_name, pic_dir)
