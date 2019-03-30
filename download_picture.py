@@ -1,3 +1,6 @@
+import os
+import requests
+
 def download_picture(pic_path, pic_name, pic_dir):
     '''Скачивает картинку с адресом pic_path, с именем pic_name в директорию pic_dir '''
     os.makedirs(pic_dir, exist_ok=True)
