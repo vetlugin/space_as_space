@@ -3,8 +3,7 @@ import os
 
 def download_picture(pic_path, pic_name, pic_dir):
     '''Download picture by 'pic_path' address, 'pic_name' name to 'pic_dir' folder'''
-    if not os.path.exists(pic_dir):
-        os.makedirs(pic_dir)
+    os.makedirs(pic_dir, exist_ok=True)
 
     filename = os.path.join(pic_dir, pic_name)
     response = requests.get(pic_path)
