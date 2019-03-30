@@ -9,7 +9,7 @@ def download_picture(pic_path, pic_name, pic_dir):
     response = requests.get(pic_path)
     with open(filename, 'wb') as file:
         file.write(response.content)
-    return True
+
 
 def get_Hubble_image_by_id(id):
     '''Download picture with 'id' to 'pic_dir' folder '''
@@ -20,9 +20,8 @@ def get_Hubble_image_by_id(id):
     pic_extension = = os.path.splitext(pic_path)[1]
     pic_name = "hubble{}.{}".format(id,pic_extension)
     pic_dir = 'images'
-
     download_picture(pic_path, pic_name, pic_dir)
-    return True
+
 
 def get_Hubble_image_collection(collection):
     '''Get list of Habble telescope picture's id with 'colelction' mark '''
